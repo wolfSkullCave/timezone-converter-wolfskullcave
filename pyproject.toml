@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "timezone-converter-wolfskullcave"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Kyle", email = "67805222+wolfSkullCave@users.noreply.github.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/Kyle/timezone-converter-wolfskullcave#readme"
+Issues = "https://github.com/Kyle/timezone-converter-wolfskullcave/issues"
+Source = "https://github.com/Kyle/timezone-converter-wolfskullcave"
+
+[tool.hatch.version]
+path = "src/timezone_converter_wolfskullcave/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/timezone_converter_wolfskullcave tests}"
+
+[tool.coverage.run]
+source_pkgs = ["timezone_converter_wolfskullcave", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/timezone_converter_wolfskullcave/__about__.py",
+]
+
+[tool.coverage.paths]
+timezone_converter_wolfskullcave = ["src/timezone_converter_wolfskullcave", "*/timezone-converter-wolfskullcave/src/timezone_converter_wolfskullcave"]
+tests = ["tests", "*/timezone-converter-wolfskullcave/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
