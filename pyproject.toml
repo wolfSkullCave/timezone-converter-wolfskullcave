@@ -24,7 +24,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pytz",
+]
 
 [project.urls]
 Documentation = "https://github.com/Kyle/timezone-converter-wolfskullcave#readme"
@@ -58,4 +60,9 @@ exclude_lines = [
   "no cov",
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
+]
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "black",
 ]
